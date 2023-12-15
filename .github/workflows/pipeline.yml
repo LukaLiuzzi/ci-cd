@@ -17,6 +17,7 @@ jobs:
       - name: Build
         run: npm run build
   test:
+    needs: build
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
