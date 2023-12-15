@@ -1,5 +1,5 @@
 import request from "supertest"
-import { app } from "../src/app.js"
+import { app } from "../src/app"
 
 describe("USERS API", () => {
   beforeAll(async () => {
@@ -15,7 +15,8 @@ describe("USERS API", () => {
 
   test("GET /users should return array of objects with name, email and id", async () => {
     const response = await request(app).get("/users")
-    const users = response.body
+    const users: Array<{ name: string; email: string; id: number }> =
+      response.body
 
     expect(users).toEqual(
       expect.arrayContaining([
@@ -34,7 +35,7 @@ describe("USERS API", () => {
 
   test("GET /users/:id should return object with name, email and id", async () => {
     const response = await request(app).get("/users/1")
-    const user = response.body
+    const user: { name: string; email: string; id: number } = response.body
 
     expect(user).toEqual(
       expect.objectContaining({
@@ -65,7 +66,7 @@ describe("USERS API", () => {
       email: "alvaro@gmail.com",
     })
 
-    const user = response.body
+    const user: { name: string; email: string; id: number } = response.body
 
     expect(user).toEqual(
       expect.objectContaining({
@@ -91,7 +92,7 @@ describe("USERS API", () => {
       name: "lukita",
       email: "luka@gmail.com",
     })
-    const user = response.body
+    const user: { name: string; email: string; id: number } = response.body
 
     expect(user).toEqual(
       expect.objectContaining({
