@@ -14,5 +14,5 @@ jobs:
           node-version: "21.4.0"
       - name: Install dependencies
         run: npm install
-      - name: Run finished actions
-        run: echo "Finished!! Depencencies installed successfully!!"
+      - name: Run tests
+        run: npm run test

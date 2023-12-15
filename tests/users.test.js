@@ -103,6 +103,6 @@ describe("USERS API", () => {
   })
 
   test("DELETE /users/:id should return 204", async () => {
-    const response = await request(app).delete("/users/1").expect(204)
+    const response = await request(app).delete("/users/1").expect(205)
   })
 })
